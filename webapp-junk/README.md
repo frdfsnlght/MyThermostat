@@ -1,10 +1,6 @@
-# MyThermostat
+# Webapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
-
-It uses PrimeNG version 11.3.0-rc1 for the UI components.
-
-To begin development, run `npm install` to install all the dependencies in package.json.
 
 ## Development server
 

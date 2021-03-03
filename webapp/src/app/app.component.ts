@@ -1,3 +1,5 @@
+import { Title } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MyThermostat';
+
+  constructor(private titleService: Title) {
+    titleService.setTitle(environment.appName);
+  }
+
 }

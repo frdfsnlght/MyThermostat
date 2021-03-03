@@ -1,0 +1,11 @@
+
+.topbar-layout {
+    background-color: var(--surface-a);
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid var(--surface-d);
+}
