@@ -1,11 +1,15 @@
-
-.topbar-layout {
+.topbar {
     background-color: var(--surface-a);
-    height: 70px;
+    height: 82px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
     border-bottom: 1px solid var(--surface-d);
+    padding: 1rem;
+}
+
+.content {
+    padding-top: 82px;
 }

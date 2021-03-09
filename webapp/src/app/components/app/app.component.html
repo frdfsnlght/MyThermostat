@@ -1,0 +1,31 @@
+<div class="topbar">
+    <div class="p-d-flex">
+        <div class="p-ml-2 p-mr-2 p-d-flex p-flex-column p-jc-center">
+            <p-button icon="pi pi-bars" styleClass="p-button-text p-button-lg p-button-plain" (onClick)="displaySidebar = true"></p-button>
+        </div>
+        <div class="p-mr-2 p-d-flex p-flex-column p-jc-center">
+            <h2 class="p-mr-2">{{getTitle()}}</h2>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false">
+    <div class="p-d-flex">
+        <div class="p-ml-2 p-mr-2 p-d-flex p-flex-column p-jc-center">
+            <p-button icon="pi pi-bars" styleClass="p-button-text p-button-lg p-button-plain" (onClick)="displaySidebar = false"></p-button>
+        </div>
+        <div class="p-mr-2 p-d-flex p-flex-column p-jc-center">
+            <h2 class="p-mr-2">{{getTitle()}}</h2>
+        </div>
+    </div>
+
+    <div class="p-d-flex p-flex-column p-ai-stretch p-fluid">
+        <app-sidebar-button icon="pi pi-home" label="Home" (onClick)="routeTo('/home')"></app-sidebar-button>
+        <app-sidebar-button icon="pi pi-cog" label="Settings" (onClick)="routeTo('/settings')"></app-sidebar-button>
+        <app-sidebar-button icon="pi pi-calendar" label="Schedule" (onClick)="routeTo('/schedule')"></app-sidebar-button>
+        <app-sidebar-button icon="pi pi-question-circle" label="About" (onClick)="routeTo('/about')"></app-sidebar-button>
+    </div>
+
+</p-sidebar>
