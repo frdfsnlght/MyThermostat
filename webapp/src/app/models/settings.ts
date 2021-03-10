@@ -2,6 +2,8 @@ import { Deserializable } from './deserializable';
 
 export class Settings implements Deserializable {
 
+    serial: number;
+    
     name: string;
 
     wifiSSID: string;
