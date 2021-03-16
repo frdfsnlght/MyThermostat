@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { LogService } from './../../services/log.service';
+import { WebSocketService } from './../../services/websocket.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -13,13 +14,18 @@ import { environment } from '../../../environments/environment';
 export class AppComponent implements OnInit {
 
   displaySidebar: boolean = false;
+  displayDisconnectedDialog: boolean = true;
 
-  constructor(private titleService: Title, private router: Router, private log: LogService) {
+  constructor(private titleService: Title, private router: Router, private ws: WebSocketService, private log: LogService) {
+    this.log.info(this.titleService.getTitle() + ' starting...');
+    
     titleService.setTitle(environment.appName);
+    ws.on('connected', () => { this.displayDisconnectedDialog = false; });
+    ws.on('disconnected', () => { this.displayDisconnectedDialog = true; });
+    ws.connect();
   }
 
   ngOnInit(): void {
-    this.log.info(this.titleService.getTitle() + ' starting...');
   }
 
   getTitle() {

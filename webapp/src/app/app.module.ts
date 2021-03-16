@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router'
 // PrimeNG imports
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
+import { DialogModule } from 'primeng/dialog';
 
 // Local imports
 import { AppComponent } from './components/app/app.component';
@@ -17,6 +18,9 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
 
 import { LogService } from './services/log.service';
+import { WebSocketService } from './services/websocket.service';
+import { InfoService } from './services/info.service';
+import { StateService } from './services/state.service';
 import { SettingsService } from './services/settings.service';
 
 
@@ -43,11 +47,15 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     ButtonModule,
-    SidebarModule
+    SidebarModule,
+    DialogModule
   ],
   providers: [
     Title,
     LogService,
+    WebSocketService,
+    InfoService,
+    StateService,
     SettingsService
   ],
   bootstrap: [AppComponent]

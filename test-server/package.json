@@ -4,14 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/socket.io": "^2.1.13",
-    "express": "^4.17.1",
-    "socket.io": "^4.0.0"
+    "ws": "^7.4.4"
   }
 }

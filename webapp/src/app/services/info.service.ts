@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
 import { WebSocketService } from './websocket.service';
-import { State } from './../models/state';
+import { Info } from './../models/info';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StateService {
+export class InfoService {
 
-  private _state: State;
+  private _info: Info;
 
-  get state() {
-    return this._state;
+  get info() {
+    return this._info;
   }
 
   constructor(private log: LogService, private ws: WebSocketService) {
     this.ws.on('connected', () => { this.connected(); });
     this.ws.on('disconnected', () => { this.disconnected(); });
-    this.ws.on('state', (data) => { this.setState(data); });
-    this._state = new State();
+    this.ws.on('info', (data) => { this.setInfo(data); });
+    this._info = new Info();
 
     if (this.ws.isConnected)
       this.connected();
   }
 
   private connected() {
-    this.ws.send('getState');
+    this.ws.send('getInfo');
   }
 
   private disconnected() {
   }
 
-  private setState(data: object) {
-    this.log.info('setState', data);
-    this._state.deserialize(data);
+  private setInfo(data) {
+    this.log.info('setInfo', data);
+    this._info.deserialize(data);
   }
-  
+
 }

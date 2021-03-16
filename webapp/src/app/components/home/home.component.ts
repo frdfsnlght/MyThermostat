@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from './../../services/state.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
+  }
+
+  get state() {
+    return this.stateService.state;
   }
 
 }

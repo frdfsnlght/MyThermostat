@@ -2,13 +2,7 @@ import { Deserializable } from './deserializable';
 
 export class State implements Deserializable {
 
-    hwVersion: string;
-    hwSerial: string;
-    fwVersion: string;
-
-    wifiMode: 'AP' | 'STA';
     wifiConnected: boolean;
-    ipAddr: string;
 
     tempSet: number;
     tempCurrent: number;
@@ -26,8 +20,6 @@ export class State implements Deserializable {
 
     datetime: string;
 
-    // flash size/remaining?
-    // running partition
     // current schedule slot
 
     deserialize(input: any): this {
