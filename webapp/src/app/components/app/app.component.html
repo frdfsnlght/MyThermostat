@@ -1,17 +1,44 @@
-<div class="topbar">
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav mode="push" [(opened)]="displaySidenav" [fixedInViewport]="true">
+        <div class="buttons">
+            <h2>{{ title }}</h2>
+            <button mat-button (click)="routeTo('/home')"><icon name="home"></icon>Home</button>
+            <button mat-button (click)="routeTo('/settings')"><icon name="cog"></icon>Settings</button>
+            <button mat-button (click)="routeTo('/schedule')"><icon name="calendar"></icon>Schedule</button>
+            <button mat-button (click)="routeTo('/system')"><icon name="chip"></icon>System</button>
+            <button mat-button (click)="routeTo('/about')"><icon name="help-circle"></icon>About</button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="displaySidenav = true"><icon name="menu"></icon></button>
+            <h1>{{ title }}</h1>
+            <span class="spacer"></span>
+            <icon name="wifi"></icon>
+        </mat-toolbar>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+<!--div class="topbar">
     <div class="p-d-flex">
         <div class="p-ml-2 p-mr-2 p-d-flex p-flex-column p-jc-center">
             <p-button icon="pi pi-bars" styleClass="p-button-text p-button-lg p-button-plain" (onClick)="displaySidebar = true"></p-button>
+            <i class="material-icons">face</i>
         </div>
         <div class="p-mr-2 p-d-flex p-flex-column p-jc-center">
             <h2 class="p-mr-2">{{getTitle()}}</h2>
         </div>
     </div>
-</div>
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
-<p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false">
+</div-->
+
+<!--p-sidebar [(visible)]="displaySidebar" [showCloseIcon]="false">
     <div class="p-d-flex">
         <div class="p-ml-2 p-mr-2 p-d-flex p-flex-column p-jc-center">
             <p-button icon="pi pi-bars" styleClass="p-button-text p-button-lg p-button-plain" (onClick)="displaySidebar = false"></p-button>
@@ -20,27 +47,13 @@
             <h2 class="p-mr-2">{{getTitle()}}</h2>
         </div>
     </div>
-
+    
     <div class="p-d-flex p-flex-column p-ai-stretch p-fluid">
         <app-sidebar-button icon="pi pi-home" label="Home" (onClick)="routeTo('/home')"></app-sidebar-button>
         <app-sidebar-button icon="pi pi-cog" label="Settings" (onClick)="routeTo('/settings')"></app-sidebar-button>
         <app-sidebar-button icon="pi pi-calendar" label="Schedule" (onClick)="routeTo('/schedule')"></app-sidebar-button>
         <app-sidebar-button icon="pi pi-question-circle" label="About" (onClick)="routeTo('/about')"></app-sidebar-button>
     </div>
+    
+</p-sidebar-->
 
-</p-sidebar>
-
-<p-dialog [(visible)]="displayDisconnectedDialog"
-          header="Disconnected"
-          [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
-          [style]="{width: '50vw'}"
-          position="top"
-          [draggable]="false"
-          [resizable]="false"
-          [modal]="true"
-          [closeOnEscape]="false"
-          [closable]="false">
-
-    <p>Connection to the thermostat has been lost!</p>
-
-</p-dialog>

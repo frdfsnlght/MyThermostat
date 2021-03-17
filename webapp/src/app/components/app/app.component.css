@@ -1,15 +1,30 @@
-.topbar {
-    background-color: var(--surface-a);
-    height: 82px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    border-bottom: 1px solid var(--surface-d);
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-sidenav {
+    width: 200px;
     padding: 1rem;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+mat-sidenav button {
+    text-align: left;
+}
+
+mat-sidenav button icon {
+    padding-right: 1.5em;
+}
+
 .content {
-    padding-top: 82px;
+    padding: 1rem;
+}
+
+h2 {
+    font-size: 120%;
 }
